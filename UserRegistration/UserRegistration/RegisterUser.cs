@@ -11,7 +11,7 @@ namespace UserRegistration
     {
         public string Name(string name)
         {
-            //Regular expression or validating first name
+            //Regular expression or validating first name as well as last name
             string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$"; 
 
             Console.Write("Enter " + name + " Name for validation : ");
@@ -19,6 +19,15 @@ namespace UserRegistration
 
             //if enteredName matches with our expression then 2nd part will execute otherwise 3rd part
             return Regex.IsMatch(enteredName, REGEX_FIRSTNAME) ? (name + " Name is valid") : (name + " Name is invalid");
-        } 
+        }
+
+        public string Email(string email)
+        {
+            //regular expression for validating email
+            string REGEX_EMAIL = "^([A-Za-z]){3,}([_.+-]{1}[0-9A-Za-z]{1,}){0,}@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
+
+            //string enteredEmail = Console.ReadLine();
+            return Regex.IsMatch(email, REGEX_EMAIL) ? "Email is valid" : "Email is invalid";
+        }
     }
 }
