@@ -13,6 +13,7 @@
                 Console.WriteLine("4. Enter Mobile number along with country code");
                 Console.WriteLine("5. Enter Password having minimum 8 Characters");
                 Console.WriteLine("6. Password previous condition with atleast 1 upper case letter");
+                Console.WriteLine("7. Password previous conditions with atleast 1 numeric number");
 
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -42,6 +43,10 @@
                     case 6:
                         RegisterUser registerUser5 = new RegisterUser();
                         Console.WriteLine(registerUser5.Password2());
+                        break;
+                    case 7:
+                        RegisterUser registerUser6 = new RegisterUser();
+                        Console.WriteLine(registerUser6.Password3());
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");
