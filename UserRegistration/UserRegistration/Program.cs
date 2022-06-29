@@ -11,6 +11,7 @@
                 Console.WriteLine("2. Enter valid Last Name");
                 Console.WriteLine("3. Enter valid email");
                 Console.WriteLine("4. Enter Mobile number along with country code");
+                Console.WriteLine("5. Enter Password having minimum 8 Characters");
 
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -32,6 +33,10 @@
                     case 4:
                         RegisterUser registerUser3 = new RegisterUser();
                         Console.WriteLine(registerUser3.Mobile());
+                        break;
+                    case 5:
+                        RegisterUser registerUser4 = new RegisterUser();
+                        Console.WriteLine(registerUser4.Password1());
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");
