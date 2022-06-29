@@ -14,39 +14,44 @@
                 Console.WriteLine("5. Enter Password having minimum 8 Characters");
                 Console.WriteLine("6. Password previous condition with atleast 1 upper case letter");
                 Console.WriteLine("7. Password previous conditions with atleast 1 numeric number");
+                Console.WriteLine("8. Password all previous conditions with exactly 1 special character");
 
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
                     case 1:
-                        RegisterUser registerUser = new RegisterUser();
-                        Console.WriteLine(registerUser.Name("First"));
+                        RegisterUser registerUser1 = new RegisterUser();
+                        Console.WriteLine(registerUser1.Name("First"));
                         break;
                     case 2:
-                        RegisterUser registerUser1 = new RegisterUser();
-                        Console.WriteLine(registerUser1.Name("Last"));
+                        RegisterUser registerUser2 = new RegisterUser();
+                        Console.WriteLine(registerUser2.Name("Last"));
                         break;
                     case 3:    
-                        RegisterUser registerUser2 = new RegisterUser();
-                        Console.WriteLine("abc+100@gmail.com : " + registerUser2.Email("abc+100@gmail.com"));
-                        Console.WriteLine("abc@gmail.com.aa.au : " + registerUser2.Email("abc@gmail.com.aa.au"));
+                        RegisterUser registerUser3 = new RegisterUser();
+                        Console.WriteLine("abc+100@gmail.com : " + registerUser3.Email("abc+100@gmail.com"));
+                        Console.WriteLine("abc@gmail.com.aa.au : " + registerUser3.Email("abc@gmail.com.aa.au"));
                         break;
                     case 4:
-                        RegisterUser registerUser3 = new RegisterUser();
-                        Console.WriteLine(registerUser3.Mobile());
+                        RegisterUser registerUser4 = new RegisterUser();
+                        Console.WriteLine(registerUser4.Mobile());
                         break;
                     case 5:
-                        RegisterUser registerUser4 = new RegisterUser();
-                        Console.WriteLine(registerUser4.Password1());
+                        RegisterUser registerUser5 = new RegisterUser();
+                        Console.WriteLine(registerUser5.Password1());
                         break;
                     case 6:
-                        RegisterUser registerUser5 = new RegisterUser();
-                        Console.WriteLine(registerUser5.Password2());
+                        RegisterUser registerUser6 = new RegisterUser();
+                        Console.WriteLine(registerUser6.Password2());
                         break;
                     case 7:
-                        RegisterUser registerUser6 = new RegisterUser();
-                        Console.WriteLine(registerUser6.Password3());
+                        RegisterUser registerUser7 = new RegisterUser();
+                        Console.WriteLine(registerUser7.Password3());
+                        break;
+                    case 8:
+                        RegisterUser registerUser8 = new RegisterUser();
+                        Console.WriteLine(registerUser8.Password4());
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");
