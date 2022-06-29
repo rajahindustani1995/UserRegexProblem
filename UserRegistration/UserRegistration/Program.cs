@@ -8,6 +8,7 @@
             while (true)
             {
                 Console.WriteLine("\n1. Enter valid First Name");
+                Console.WriteLine("2. Enter valid Last Name");
 
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
@@ -17,6 +18,10 @@
                     case 1:
                         RegisterUser registerUser = new RegisterUser();
                         Console.WriteLine(registerUser.Name("First"));
+                        break;
+                    case 2:
+                        RegisterUser registerUser1 = new RegisterUser();
+                        Console.WriteLine(registerUser1.Name("Last"));
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");

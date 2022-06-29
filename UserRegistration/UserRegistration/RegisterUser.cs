@@ -12,7 +12,7 @@ namespace UserRegistration
         public string Name(string name)
         {
             //Regular expression or validating first name
-            string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$";
+            string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$"; 
 
             Console.Write("Enter " + name + " Name for validation : ");
             string enteredName = Console.ReadLine();
