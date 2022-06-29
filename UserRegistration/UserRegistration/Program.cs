@@ -15,6 +15,7 @@
                 Console.WriteLine("6. Password previous condition with atleast 1 upper case letter");
                 Console.WriteLine("7. Password previous conditions with atleast 1 numeric number");
                 Console.WriteLine("8. Password all previous conditions with exactly 1 special character");
+                Console.WriteLine("9. Clear all the sample emails provided separately");
 
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -52,6 +53,10 @@
                     case 8:
                         RegisterUser registerUser8 = new RegisterUser();
                         Console.WriteLine(registerUser8.Password4());
+                        break;
+                    case 9:
+                        RegisterUser registerUser9 = new RegisterUser();
+                        registerUser9.ClearSamples();
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");
