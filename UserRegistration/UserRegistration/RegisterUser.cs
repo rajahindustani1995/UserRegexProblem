@@ -12,7 +12,7 @@ namespace UserRegistration
         public string Name(string name)
         {
             //Regular expression or validating first name as well as last name
-            string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$"; 
+            string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$";
 
             Console.Write("Enter " + name + " Name for validation : ");
             string enteredName = Console.ReadLine();
@@ -32,7 +32,7 @@ namespace UserRegistration
 
         public string Mobile()
         {
-            
+
             string REGEX_CELLNO = "^[1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
 
             Console.Write("Enter country code with Mobile number for validation (give a space between them) : ");
@@ -44,6 +44,16 @@ namespace UserRegistration
         {
             //Regular expression below will match any character except space i.e. " "
             string REGEX_PASS = "^.{8,}$";
+
+            Console.Write("Enter password for validation : ");
+            string enteredPassword = Console.ReadLine();
+            return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
+        }
+
+        public string Password2()
+        {
+            //Regular expression to match previous condition + atleast one Upper Case
+            string REGEX_PASS = "^(?=.*[A-Z]).{8,}$";
 
             Console.Write("Enter password for validation : ");
             string enteredPassword = Console.ReadLine();
