@@ -9,7 +9,7 @@ namespace UserRegistrationTests
         [TestMethod]
         [DataRow("Rajesh", "Rajesh")]
         [DataRow("Ra", null)]
-
+         
         [DataRow("Ambavale", "Ambavale")]
         [DataRow("A", null)]
         public void Name(string a, string expected)

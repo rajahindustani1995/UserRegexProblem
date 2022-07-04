@@ -11,33 +11,104 @@ namespace UserRegistration
     {
         public string Name(string name)
         {
-            //Regular expression or validating first name as well as last name
+            //Regular expression or validating name
             string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$";
 
             Console.Write("Enter " + name + " Name for validation : ");
             string enteredName = Console.ReadLine();
 
-            //if enteredName matches with our expression then 2nd part will execute otherwise 3rd part
-            return Regex.IsMatch(enteredName, REGEX_FIRSTNAME) ? (name + " Name is valid") : (name + " Name is invalid");
+            try
+            {
+                if (enteredName.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Name should not be empty");
+                }
+                if (enteredName.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Name should not be ull");
+                }
+                if (Regex.IsMatch(enteredName, REGEX_FIRSTNAME))
+                {
+                    Console.WriteLine(name + " Name is valid");
+                    return enteredName;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Name should be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Email(string email)
         {
             //regular expression for validating email
-            string REGEX_EMAIL = "^([A-Za-z]){3,}([_.+-]{1}[0-9A-Za-z]{1,}){0,}@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
+            string REGEX_EMAIL = "^([A-Za-z]){3,}(([_.+-]?)([0-9A-Za-z]{1,}))*@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
 
+            //Console.Write("Enter Email Name for validation : ");
             //string enteredEmail = Console.ReadLine();
-            return Regex.IsMatch(email, REGEX_EMAIL) ? "Email is valid" : "Email is invalid";
+
+            try
+            {
+                if (email.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Email should not be empty");
+                }
+                if (email.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Email should not be ull");
+                }
+                if (Regex.IsMatch(email, REGEX_EMAIL))
+                {
+                    Console.WriteLine("Email is valid");
+                    return email;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Email should be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Mobile()
         {
+            //Regular expression for checking mobile number, all mobile numbers starts with 6, 7, 8 or 9
+            string REGEX_CELLNO = "^[+][1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
 
-            string REGEX_CELLNO = "^[1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
-
-            Console.Write("Enter country code with Mobile number for validation (give a space between them) : ");
+            Console.Write("Enter country code with Mobile number for validation (give a space between them, write '+' at the beginning) : ");
             string enteredMobileNumber = Console.ReadLine();
-            return Regex.IsMatch(enteredMobileNumber, REGEX_CELLNO) ? "Mobile number is valid" : "Mobile number is invalid";
+
+            try
+            {
+                if (enteredMobileNumber.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Mobile number not be empty");
+                }
+                if (enteredMobileNumber.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Mobile number not be ull");
+                }
+                if (Regex.IsMatch(enteredMobileNumber, REGEX_CELLNO))
+                {
+                    Console.WriteLine("Mobile number is valid");
+                    return enteredMobileNumber;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Mobile number be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Password1()
@@ -77,23 +148,48 @@ namespace UserRegistration
 
             Console.Write("Enter password for validation : ");
             string enteredPassword = Console.ReadLine();
-            return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
+
+            try
+            {
+                if (enteredPassword.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Password not be empty");
+                }
+                if (enteredPassword.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Password not be ull");
+                }
+                if (Regex.IsMatch(enteredPassword, REGEX_PASS))
+                {
+                    Console.WriteLine("Password is valid");
+                    return enteredPassword;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Password be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
-        public void ClearSamples()
+        //Method to test each Valid and Invalid email provided separately for testing
+        public void Test()
         {
-            RegisterUser registerUser = new RegisterUser();
+            RegisterUser  register = new RegisterUser();
             Console.WriteLine("A. Valid Emails");
             string[] validEmails = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com" };
             for (int i = 0; i < validEmails.Length; i++)
             {
-                Console.WriteLine((i + 1) + ". " + validEmails[i] + " : " + registerUser.Email(validEmails[i]));
+                Console.WriteLine((i + 1) + ". " + validEmails[i] + " : " + register.Email(validEmails[i]));
             }
             Console.WriteLine("\nB. Invalid Emails");
             string[] invalidEmails = { "abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
             for (int i = 0; i < invalidEmails.Length; i++)
             {
-                Console.WriteLine((i + 1) + ". " + invalidEmails[i] + " : " + registerUser.Email(invalidEmails[i]));
+                Console.WriteLine((i + 1) + ". " + invalidEmails[i] + " : " + register.Email(invalidEmails[i]));
             }
         }
     }
