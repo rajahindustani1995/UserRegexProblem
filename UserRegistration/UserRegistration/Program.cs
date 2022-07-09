@@ -32,11 +32,13 @@
                     case 3:    
                         RegisterUser registerUser3 = new RegisterUser();
                         Console.WriteLine("abc+100@gmail.com : " + registerUser3.Email("abc+100@gmail.com"));
-                        Console.WriteLine("abc@gmail.com.aa.au : " + registerUser3.Email("abc@gmail.com.aa.au"));
+                        //Console.WriteLine("abc@gmail.com.aa.au : " + registerUser3.Email("abc@gmail.com.aa.au"));
                         break;
                     case 4:
                         RegisterUser registerUser4 = new RegisterUser();
-                        Console.WriteLine(registerUser4.Mobile());
+                        Console.Write("Enter country code with Mobile number for validation (give a space between them) : ");
+                        string enteredMobileNumber = Console.ReadLine();
+                        Console.WriteLine(registerUser4.Mobile(enteredMobileNumber));
                         break;
                     case 5:
                         RegisterUser registerUser5 = new RegisterUser();
@@ -52,11 +54,13 @@
                         break;
                     case 8:
                         RegisterUser registerUser8 = new RegisterUser();
-                        Console.WriteLine(registerUser8.Password4());
+                        Console.Write("Enter password for validation : ");
+                        string enteredPassword = Console.ReadLine();
+                        Console.WriteLine(registerUser8.Password4(enteredPassword));
                         break;
                     case 9:
                         RegisterUser registerUser9 = new RegisterUser();
-                        registerUser9.ClearSamples();
+                        registerUser9.Test();
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");

@@ -22,4 +22,4 @@ namespace UserRegistration
             this.type = type;
         }
     }
-}
+} 

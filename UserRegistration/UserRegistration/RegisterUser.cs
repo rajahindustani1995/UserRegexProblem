@@ -53,13 +53,14 @@ namespace UserRegistration
 
             try
             {
+
                 if (email.Equals(""))
                 {
                     throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Email should not be empty");
                 }
                 if (email.Equals(null))
                 {
-                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Email should not be ull");
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Email should not be null");
                 }
                 if (Regex.IsMatch(email, REGEX_EMAIL))
                 {
